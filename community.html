@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dasgras | 广州市房地产数据分析与预测</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap v3.3.7 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Font Awesome v4.7.0 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Ionicons v2.0.0 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/ionicons/2.0.0/css/ionicons.min.css">
+    <!-- Theme style v2.4.2 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/admin-lte/2.4.2/css/AdminLTE.min.css">
+    <!-- DataTables v1.10.16 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/datatables/1.10.16/css/dataTables.bootstrap.min.css">
+    <!-- AdminLTE Skins.v2.4.2 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/admin-lte/2.4.2/css/skins/skin-blue.css">
+    <!-- jQuery UI CSS v1.12.1 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.css">
+    <!-- 百度地图 API -->
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/getscript?v=2.0&ak=gh4PjU5UsCxml6vxPDmshSDaIWl63Vz8"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Font -->
+    <!--添加中科大CDN-->
+    <link rel="stylesheet"
+          href="https://fonts.lug.ustc.edu.cn/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style type="text/css">
+        /* Chart.js */
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue fixed sidebar-mini">
+<div class="wrapper">
+    <!-- Main Header -->
+    <header class="main-header" id="main-header"></header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar" id="main-sidebar"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                小区基本信息
+                <small>小区基本信息及周边配套设施</small>
+            </h1>
+            <!--<ol class="breadcrumb">-->
+            <!--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>-->
+            <!--<li class="active">Here</li>-->
+            <!--</ol>-->
+        </section>
+
+        <!-- Main content -->
+        <section class="content container-fluid">
+
+            <!--------------------------
+              | Your Page Content Here |
+              -------------------------->
+            <!-- 基本信息开始 -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <i class="fa fa-building fa-fw"></i><span id="community_name">小区名称</span>
+                        <small>基本信息</small>
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <!-- 提示框开始 -->
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="row" id="alert">
+                            <div class="alert ion-alert-circled alert-info text-center fade in hidden" role="alert"
+                                 id="">
+                                <span>服务器开小差了</span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 提示框结束 /.row -->
+                    <!-- 小区基本信息开始 -->
+                    <div class="col-sm-12 col-md-12">
+                        <table class="table table-bordered no-padding">
+                            <tbody>
+                            <tr>
+                                <td style="width: 10%;" class="text-bold">小区名称：</td>
+                                <td id="title">xxxx</td>
+                                <td style="width: 10%;" class="text-bold">行政区：</td>
+                                <td id="district">xxxx</td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold">建造时间：</td>
+                                <td id="year">xxxx</td>
+                                <td class="text-bold">建筑类型：</td>
+                                <td id="housetype">xxxx</td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold">物业公司：</td>
+                                <td id="service">xxxx</td>
+                                <td class="text-bold">开发商：</td>
+                                <td id="company">xxxx</td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold">楼栋总数：</td>
+                                <td id="building_num">xxxx</td>
+                                <td class="text-bold">房屋总数：</td>
+                                <td id="house_num">xxxx</td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold">在售房源：</td>
+                                <td id="onsale" colspan="3">xxxx</td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold">物业费：</td>
+                                <td id="cost" colspan="3">xxxx</td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold">参考均价：</td>
+                                <td id="price" colspan="3">xxxx</td>
+                            </tr>
+                            <tr>
+                                <td class="text-bold">所在商圈：</td>
+                                <td id="bizcircle" colspan="3">xxxx</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 小区基本信息结束 -->
+                </div>
+            </div>
+            <!-- 基本信息结束 /.row -->
+
+            <!-- 周边设施开始 -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <span><i class="fa fa-info fa-fw"></i>周边设施</span>
+                    </h3>
+                </div>
+                <div class="box-body">
+                    <!-- 小区基本信息开始 -->
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-lg-2 col-sm-6">
+                                <!-- small box -->
+                                <div class="small-box bg-green">
+                                    <div class="inner">
+                                        <h3 id="subway">0</h3>
+                                        <p>地铁</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-android-subway"></i>
+                                    </div>
+                                    <a href="javascript:void(0)" onclick="getFacilitiesInMap('地铁')"
+                                       class="small-box-footer">更多 <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6">
+                                <!-- small box -->
+                                <div class="small-box bg-blue">
+                                    <div class="inner">
+                                        <h3 id="bus">0</h3>
+                                        <p>公交</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-android-bus"></i>
+                                    </div>
+                                    <a href="javascript:void(0)" onclick="getFacilitiesInMap('公交')"
+                                       class="small-box-footer">更多 <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6">
+                                <!-- small box -->
+                                <div class="small-box bg-aqua">
+                                    <div class="inner">
+                                        <h3 id="school">0</h3>
+                                        <p>学校</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-university"></i>
+                                    </div>
+                                    <a href="javascript:void(0)" onclick="getFacilitiesInMap('学校')"
+                                       class="small-box-footer">更多 <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6">
+                                <!-- small box -->
+                                <div class="small-box bg-red">
+                                    <div class="inner">
+                                        <h3 id="hospital">0</h3>
+                                        <p>医院</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-ios-body"></i>
+                                    </div>
+                                    <a href="javascript:void(0)" onclick="getFacilitiesInMap('医院')"
+                                       class="small-box-footer">更多 <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6">
+                                <!-- small box -->
+                                <div class="small-box bg-teal">
+                                    <div class="inner">
+                                        <h3 id="building">0</h3>
+                                        <p>写字楼</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-social-github"></i>
+                                    </div>
+                                    <a href="javascript:void(0)" onclick="getFacilitiesInMap('写字楼')"
+                                       class="small-box-footer">更多 <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-6">
+                                <!-- small box -->
+                                <div class="small-box bg-orange">
+                                    <div class="inner">
+                                        <h3 id="shopping">0</h3>
+                                        <p>购物</p>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="ion ion-ios-cart"></i>
+                                    </div>
+                                    <a href="javascript:void(0)" onclick="getFacilitiesInMap('购物')"
+                                       class="small-box-footer">更多 <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- 小区基本信息结束 -->
+                </div>
+            </div>
+            <!-- 周边设施结束 /.row -->
+
+            <div class="row">
+                <!-- 地理位置开始 -->
+                <div class="col-sm-6 col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">
+                                <span><i class="fa fa-map-marker fa-fw"></i>地理位置</span>
+                            </h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="allmap"
+                                 style="
+                             height: 350px;overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 地理位置结束 /.row -->
+
+                <!-- 历史均价走势开始 -->
+                <div class="col-sm-6 col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">
+                                <span><i class="fa fa-line-chart fa-fw"></i> 历史均价走势</span>
+                            </h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="unitpricecanvas" class="chartjs-render-monitor"
+                                 style="height: 350px;overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 历史均价走势结束 /.row -->
+            </div>
+
+            <div class="row">
+                <!-- 小区户型分析开始 -->
+                <div class="col-sm-6 col-md-6">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">
+                                <span><i class="fa fa-pie-chart fa-fw"></i> 小区户型分析</span>
+                            </h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="detailcanvas" class="chartjs-render-monitor"
+                                 style="height: 350px;overflow: hidden; position: relative; z-index: 0; background-color: rgb(243, 241, 236); color: rgb(0, 0, 0); text-align: left;"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 小区户型分析结束 /.row -->
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <!--navbar-fixed-bottom 修复错版问题-->
+    <footer class="main-footer" id="main-footer"></footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+<!-- jQuery v3.3.1 -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap v3.3.7 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- AdminLTE App v2.4.2 -->
+<script src="https://cdn.bootcss.com/admin-lte/2.4.2/js/adminlte.min.js"></script>
+<!-- DataTables v1.10.16 -->
+<script src="https://cdn.bootcss.com/datatables/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.bootcss.com/datatables/1.10.16/js/dataTables.bootstrap.min.js"></script>
+<!-- 页面js -->
+<script src="dist/js/community.js"></script>
+<!-- ChartJS v1.0.2 最新2.7.2 -->
+<script src="https://cdn.bootcss.com/Chart.js/1.0.2/Chart.min.js"></script>
+<!-- jQuery UI 1.12.1 fixed the bugs-->
+<script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<!--SlimScroll-->
+<!--<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>-->
+<!--FastClick-->
+<!--<script src="bower_components/fastclick/lib/fastclick.js"></script>-->
+<!--Optionally, you can add Slimscroll and FastClick plugins.-->
+<!--Both of these plugins are recommended to enhance the user experience. -->
+</body>
+</html>
